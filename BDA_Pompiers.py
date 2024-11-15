@@ -42,10 +42,10 @@ st.markdown(
     """,
     unsafe_allow_html=True)
 
+LFB=pd.read_csv("FINAL_LFB Mobilisation & Incident data from 2018 - 2023.zip", compression='zip', encoding='ISO-8859-1', sep=',', on_bad_lines='skip')
 
 @st.cache_data
 def load_data():
-    LFB=pd.read_csv("FINAL_LFB Mobilisation & Incident data from 2018 - 2023.csv")
     Inc1824_head=pd.read_csv("1_1_Inc1824_Head.csv")
     Inc1824_describe=pd.read_csv("1_2_Inc1824_Describe.csv")
     Inc1824_NaN=pd.read_csv("1_3_Inc1824_Nan.csv")
@@ -59,9 +59,9 @@ def load_data():
     Final_describe=pd.read_csv("4_2_Final_Describe.csv")
     Final_NaN=pd.read_csv("4_3_Final_Nan.csv")
     Distrib_RT=pd.read_csv("5_Distrib_ResponseTime.csv")
-    return LFB, Distrib_RT, Inc1824_head, Inc1824_describe, Inc1824_NaN, Mob1520_head, Mob1520_describe, Mob1520_NaN, Mob2124_head, Mob2124_describe, Mob2124_NaN, Final_head, Final_describe, Final_NaN
+    return Distrib_RT, Inc1824_head, Inc1824_describe, Inc1824_NaN, Mob1520_head, Mob1520_describe, Mob1520_NaN, Mob2124_head, Mob2124_describe, Mob2124_NaN, Final_head, Final_describe, Final_NaN
 
-LFB, Distrib_RT, Inc1824_head, Inc1824_describe, Inc1824_NaN, Mob1520_head, Mob1520_describe, Mob1520_NaN, Mob2124_head, Mob2124_describe, Mob2124_NaN, Final_head, Final_describe, Final_NaN = load_data()
+Distrib_RT, Inc1824_head, Inc1824_describe, Inc1824_NaN, Mob1520_head, Mob1520_describe, Mob1520_NaN, Mob2124_head, Mob2124_describe, Mob2124_NaN, Final_head, Final_describe, Final_NaN = load_data()
 
 st.title("Projet de prédiction du temps de réponse de la Brigade des Pompiers de Londres")
 st.sidebar.title("Sommaire")
